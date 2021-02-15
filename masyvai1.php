@@ -128,6 +128,7 @@ echo '</pre>';
 echo '<br>';
 
 // ********************* array_replace — Replaces elements from passed arrays into the first array
+// %  - dalyba be liekanos (pvz 10 % 6 = 2 ( o, ne 1.6666))
 echo '2.g  SĄLYGA: <br> Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15';
 echo '<br>';
 $new2GMasyvas = $masyvas;
@@ -146,7 +147,7 @@ print_r($new2GMasyvas);
 echo '</pre><br>';
 echo '<br>';
 
-// *********************  
+// *********************  BREAK - programos stabdymas
 echo '2.h  SĄLYGA: <br> Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10. <br>';
 echo ('MAN NEAIŠKU - KURIME MASYVE? sename? naujame? nes  daug prikurta...');
 echo '<br>';
