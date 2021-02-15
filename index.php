@@ -1,9 +1,25 @@
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 1 ****** </h3>
+
+<?php
 // 1.	Sugeneruokite masyvą iš 30 elementų 
 // (indeksai nuo 0 iki 29), 
 // kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
-<?php
 
+$masyvas = [];
+for ($i = 0; $i < 30; $i++) {
+    array_push($masyvas, rand(5, 25));
+}
+echo '<pre>';
+echo "Vienas masyvo spausdinimo būdas:"; 
+echo '<br>';
+print_r($masyvas);
+// *********************
+echo '<br>';
+echo "Kitas masyvo spausdinimo būdas:"; 
+foreach($masyvas as $index => $value) {
+    echo '<br>';
+    echo $index.' >>> '.$value;
+ }
 
   
 ?>
