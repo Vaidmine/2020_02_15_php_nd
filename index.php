@@ -38,7 +38,7 @@ foreach($masyvas as $index => $value) {
 // h)	Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
 // i)	Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą;
 
-echo "2.a SALYGA: <br> Naudodamiesi 1 uždavinio masyvu suskaičiuokite kiek masyve yra reikšmių didesnių už 10";
+echo "2.a SĄLYGA: <br> Naudodamiesi 1 uždavinio masyvu suskaičiuokite kiek masyve yra reikšmių didesnių už 10";
 echo '<br>';
     $count = 0;
     for($i = 0; $i < count($masyvas); $i++) {
@@ -51,8 +51,8 @@ echo "2.a ATSAKYMAS:<br>";
 echo "<b>Reikšmių didesnių už 10 šiame masyve yra $count </b> ";
 echo '<br><br>';  
 
-// *********************
-echo "2.b SALYGA: <br> Raskite didžiausią masyvo reikšmę";
+// ********************* 'count' Counts all elements in an array, or something in an object.
+echo "2.b SĄLYGA: <br> Raskite didžiausią masyvo reikšmę";
 echo '<br><br>';
 
 $biggest = 0;
@@ -66,14 +66,112 @@ echo "2.b ATSAKYMAS: <br>";
 echo "<b>Didžiausia masyvo reikšmė $biggest jos pozicija yra: $vieta <br></b>";
 echo '<br>';
   
-// *********************
-echo "2.c SALYGA: <br> Suskaičiuokite visų reikšmių sumą;<br><br>";
- 
-
+// ********************* += adding numeric values
+echo "2.c SĄLYGA: <br> Suskaičiuokite visų reikšmių sumą <br><br>";
+ $sum = 0; 
+ for ($i=0; $i < count($masyvas) ; $i++) { 
+    $sum += $masyvas[$i];
+ }
 echo '<br>';
 echo "2.b ATSAKYMAS:<br>";
 echo "<b> Visų reikšmių suma šiame masyve yra $sum </b> ";
 echo '<br><br>'; 
+// ********************* 
+//array_push() treats array as a stack, and pushes the passed variables onto the end of array. 
+//The length of array increases by the number of variables pushed.
+echo "2.d SĄLYGA: <br> Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes <br> minus tos reikšmės indeksas.<br><br>";
+$newMasyvas = [];
+    for($i = 0; $i < count($masyvas); $i++) {
+        array_push($newMasyvas, ($masyvas[$i] - $i));
+    }
+    echo "2.d ATSAKYMAS <br><b>(sugeneruotas naujas masyvas):<br></b>";
+    echo '<pre>';
+    print_r($newMasyvas);
+    echo '</pre>';
+    echo '<br>';
+// ********************* 
+echo "2.e SĄLYGA: <br> Papildykite masyvą papildomais 10 elementų <br> su reikšmėmis nuo 5 iki 25, <br> kad bendras masyvas padidėtų iki indekso 39;.<br><br>";
+for($i = 0; $i < 10; $i++) {
+    array_push($newMasyvas, rand(2, 25));
+}
+echo "2.e ATSAKYMAS <br><b> (papildytas naujas masyvas iki indekso 39):<br></b>";
+echo '<pre>';
+print_r($newMasyvas); 
+echo '</pre>';
+echo '<br>';
+
+// *********************  foreach (iterable_expression as $key => $value)
+// additionally assign the current element's key to the $key variable on each iteration.
+echo "2.f  SĄLYGA: <br> Iš masyvo elementų sukurkite du naujus masyvus. <br> Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių<br><br>";
+echo '<br>';
+$evenMasyvas = [];
+$oddMasyvas = [];
+foreach ($newMasyvas as $key => $value) {
+    if ($key % 2 === 0) {
+        array_push($evenMasyvas, $key);
+    } else {
+        array_push($oddMasyvas, $key);
+    }
+}
+echo '2.f ATSAKYMAS <br>';
+echo '<b>Porinis masyvas: </b>';
+echo '<pre>';
+print_r($evenMasyvas);
+echo '</pre><br>';
+
+echo '<b>NEporinis masyvas: </b>';
+echo '<pre>';
+print_r($oddMasyvas);
+echo '</pre>';
+echo '<br>';
+
+// ********************* array_replace — Replaces elements from passed arrays into the first array
+echo '2.g  SĄLYGA: <br> Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15';
+echo '<br>';
+$new2GMasyvas = $masyvas;
+
+for ($i = 0; $i < count($new2GMasyvas); $i++) {
+    if (($i % 2 === 0) && ($new2GMasyvas[$i] > 15)) {
+        $replacement = array($i => 0);
+        $new2GMasyvas = array_replace($new2GMasyvas, $replacement);
+    }
+}
+
+echo '2.g ATSAKYMAS <br>';
+echo '<b> dar vienas naujas masyvas: </b>';
+echo '<pre>';
+print_r($new2GMasyvas);
+echo '</pre><br>';
+echo '<br>';
+
+// *********************  
+echo '2.h  SĄLYGA: <br> Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10. <br>';
+echo ('MAN NEAIŠKU - KURIME MASYVE? sename? naujame? nes  daug prikurta...');
+echo '<br>';
+for ($i=0; $i < count($masyvas); $i++) { 
+    if ($masyvas[$i] > 10) {
+        break;
+    }
+}
+echo '<br><br>';
+echo '2.h ATSAKYMAS <br>';
+echo $i;
+echo '<br>';
+
+
+// *********************  unset — Unset a given variable
+echo '2.i  SĄLYGA: <br> Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą. <br>';
+echo '<br>';
+for ($i=0; $i < count($masyvas) ; $i++) { 
+    if ($i % 2 ===0 ){
+        unset($masyvas[$i]);
+    }
+}
+echo '<br><br>';
+echo '2.i ATSAKYMAS <br>';
+echo '<pre>';
+print_r($masyvas);
+echo '</pre><br>';
 
 
 ?>
