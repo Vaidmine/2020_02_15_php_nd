@@ -13,6 +13,7 @@ echo '<pre>';
 echo "Vienas masyvo spausdinimo būdas:"; 
 echo '<br>';
 print_r($masyvas);
+echo '</pre>';
 // *********************
 echo '<br>';
 echo "Kitas masyvo spausdinimo būdas:"; 
@@ -25,6 +26,7 @@ foreach($masyvas as $index => $value) {
 ?>
 
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 2 ****** </h3>
+<?php
 // 2.	Naudodamiesi 1 uždavinio masyvu:
 // a)	Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
 // b)	Raskite didžiausią masyvo reikšmę;
@@ -36,10 +38,44 @@ foreach($masyvas as $index => $value) {
 // h)	Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
 // i)	Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą;
 
-<?php
+echo "2.a SALYGA: <br> Naudodamiesi 1 uždavinio masyvu suskaičiuokite kiek masyve yra reikšmių didesnių už 10";
+echo '<br>';
+    $count = 0;
+    for($i = 0; $i < count($masyvas); $i++) {
+        if($masyvas[$i] > 10) {
+            $count++;
+        }
+    }
+echo '<br>';
+echo "2.a ATSAKYMAS:<br>";
+echo "<b>Reikšmių didesnių už 10 šiame masyve yra $count </b> ";
+echo '<br><br>';  
 
+// *********************
+echo "2.b SALYGA: <br> Raskite didžiausią masyvo reikšmę";
+echo '<br><br>';
 
+$biggest = 0;
+for($i = 0; $i < count($masyvas); $i++) {
+    if($masyvas[$i] >= $biggest) {
+        $biggest = $masyvas[$i];
+        $vieta = $i;
+    }
+}
+echo "2.b ATSAKYMAS: <br>";
+echo "<b>Didžiausia masyvo reikšmė $biggest jos pozicija yra: $vieta <br></b>";
+echo '<br>';
   
+// *********************
+echo "2.c SALYGA: <br> Suskaičiuokite visų reikšmių sumą;<br><br>";
+ 
+
+echo '<br>';
+echo "2.b ATSAKYMAS:<br>";
+echo "<b> Visų reikšmių suma šiame masyve yra $sum </b> ";
+echo '<br><br>'; 
+
+
 ?>
 
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 3 ****** </h3>
