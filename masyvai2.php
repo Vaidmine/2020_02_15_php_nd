@@ -36,6 +36,8 @@ echo "<b> Išrūšiuotos raidės masyve su 'sort' f-ja: <br> </b>";
 echo '<pre>';
 print_r($array);
 echo '</pre>';
+
+
   
 ?>
 

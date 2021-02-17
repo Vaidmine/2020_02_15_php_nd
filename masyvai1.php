@@ -10,13 +10,13 @@ foreach(range(1,30) as $value) {
     $masyvas[] = rand(5,25);
 }
 echo '<pre>';
-echo "Masyvas FOREACH būdu / mažiau kodo nei su FOR: "; 
+echo "Masyvas FOREACH būdu / mažiau kodo nei su FOR ciklu: "; 
 echo '<br>';
 print_r($masyvas);
 echo '</pre>';
 
 echo '****************';
-Echo "budas su FOR bet tinkamas tik vienmaciuo masyvui";
+Echo "<br> Yra budas su FOR ciklu bet tinkamas tik vienmaciui masyvui:";
 $masyvas = [];
 for ($i = 0; $i < 30; $i++) {
     array_push($masyvas, rand(5, 25));
@@ -35,6 +35,8 @@ foreach($masyvas as $index => $value) {
     echo '<br>';
     echo $index.' >>> '.$value;
  }
+
+
 
   
 ?>
