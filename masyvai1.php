@@ -6,15 +6,29 @@
 // kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
 
 $masyvas = [];
+foreach(range(1,30) as $value) {
+    $masyvas[] = rand(5,25);
+}
+echo '<pre>';
+echo "Masyvas FOREACH būdu / mažiau kodo nei su FOR: "; 
+echo '<br>';
+print_r($masyvas);
+echo '</pre>';
+
+echo '****************';
+Echo "budas su FOR bet tinkamas tik vienmaciuo masyvui";
+$masyvas = [];
 for ($i = 0; $i < 30; $i++) {
     array_push($masyvas, rand(5, 25));
 }
+
 echo '<pre>';
 echo "Vienas masyvo spausdinimo būdas:"; 
 echo '<br>';
 print_r($masyvas);
 echo '</pre>';
-// *********************
+echo '********************';
+
 echo '<br>';
 echo "Kitas masyvo spausdinimo būdas:"; 
 foreach($masyvas as $index => $value) {
@@ -39,6 +53,10 @@ foreach($masyvas as $index => $value) {
 // i)	Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą;
 
 echo "2.a SĄLYGA: <br> Naudodamiesi 1 uždavinio masyvu suskaičiuokite kiek masyve yra reikšmių didesnių už 10";
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 echo '<br>';
     $count = 0;
     for($i = 0; $i < count($masyvas); $i++) {
