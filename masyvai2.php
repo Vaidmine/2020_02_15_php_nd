@@ -186,7 +186,7 @@ for($i = 0; $i < count($masyvasTrecias); $i++) {
     $jauDarosiVisiskaNesamone[$masyvasTrecias[$i]] = $masyvasKetvirtas[$i];
 
 }
-echo "as jau nebesuprantu....";
+echo "????....";
 echo '<pre>';
 print_r($jauDarosiVisiskaNesamone);
 echo '</pre>';
