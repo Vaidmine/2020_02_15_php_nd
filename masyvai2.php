@@ -1,3 +1,4 @@
+<h2 style="color:rgb(0, 200, 255); padding-left:80px;">***** VIENMAČIAI MASYVAI ****** </h2>
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 3 ****** </h3>
 
 <?php
@@ -177,7 +178,7 @@ echo '<br><br>';
 <?php
 // 9.	Sugeneruokite masyvą, kurio indeksus sudarytų 
 // pirmo 6 uždavinio masyvo reikšmės, 
-// o jo reikšmės iš būtų antrojo masyvo.
+// o jo reikšmės iš būtų antrojo masyvo. (galima daryti su array_combine)
 echo "Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, <br>
 o jo reikšmės iš būtų antrojo masyvo.<br>";
 $jauDarosiVisiskaNesamone = [];
