@@ -171,7 +171,8 @@ print_r($oddMasyvas);
 echo '</pre>';
 echo '<br>';
 
-// ********************* array_replace — Replaces elements from passed arrays into the first array
+// *********************
+// array_replace — Replaces elements from passed arrays into the first array
 // %  - dalyba be liekanos (pvz 10 % 6 = 2 ( o, ne 1.6666))
 echo '<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 2G ****** </h3>';
 echo '2.g  SĄLYGA: <br> Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15';
@@ -185,26 +186,49 @@ for ($i = 0; $i < count($new2GMasyvas); $i++) {
     }
 }
 
-echo '2.g ATSAKYMAS <br>';
+echo '2.g PORINIAI MASYVAI turi būti 0, jeigu jie didesni už 15  <br>';
 echo '<b> dar vienas naujas masyvas: </b>';
 echo '<pre>';
 print_r($new2GMasyvas);
+echo '</pre><br>';
+echo '<br>';
+// ********************* KITAS BUDAS
+echo '2.g PORINIAI MASYVAI turi būti 0, jeigu jie didesni už 15 <br>
+kitas budas <br>';
+$evenMasyvas = [];
+$oddMasyvas = [];
+for ($i=0; $i < count($new2GMasyvas) ; $i++) { 
+   if ($i ==0 || $i %2 == 0){
+       array_push($evenMasyvas, $new2GMasyvas[$i]);
+   } else {
+       array_push($oddMasyvas, $new2GMasyvas[$i]);
+   }
+}
+
+for ($i=0; $i < count($evenMasyvas); $i++) { 
+    if($evenMasyvas[$i] > 15) {
+        $evenMasyvas = 0;
+    }
+}
+
+echo '<pre>';
+print_r($evenMasyvas);
 echo '</pre><br>';
 echo '<br>';
 
 // *********************  BREAK - programos stabdymas
 echo '<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 2H ****** </h3>';
 echo '2.h  SĄLYGA: <br> Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10. <br>';
-echo ('MAN NEAIŠKU - KURIME MASYVE? sename? naujame? nes  daug prikurta...');
+echo ('NEAIŠKU - KURIME MASYVE? sename? naujame? o-O...');
 echo '<br>';
-for ($i=0; $i < count($masyvas); $i++) { 
-    if ($masyvas[$i] > 10) {
+for ($i=0; $i < count($new2GMasyvas); $i++) { 
+    if ($evenMasyvas[$i] > 10) {
         break;
     }
 }
 echo '<br><br>';
 echo '2.h ATSAKYMAS <br>';
-echo $i;
+echo "h) Didesnio uz 10 elemento indeksas: $i". "<br>";
 echo '<br>';
 
 
@@ -212,15 +236,16 @@ echo '<br>';
 echo '<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 2I ****** </h3>';
 echo '2.i  SĄLYGA: <br> Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą. <br>';
 echo '<br>';
-for ($i=0; $i < count($masyvas) ; $i++) { 
-    if ($i % 2 ===0 ){
+for ($i = 0; $i < 39; $i++) {
+    if ($i == 0 || $i % 2 == 0) {
         unset($masyvas[$i]);
-    }
+    } 
 }
-echo '<br><br>';
-echo '2.i ATSAKYMAS <br>';
 echo '<pre>';
 print_r($masyvas);
 echo '</pre><br>';
+
+ 
+
 
 ?>
